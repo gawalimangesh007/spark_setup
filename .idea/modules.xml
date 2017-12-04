@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rule_revenue.iml" filepath="$PROJECT_DIR$/.idea/modules/rule_revenue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rule_revenue_main.iml" filepath="$PROJECT_DIR$/.idea/modules/rule_revenue_main.iml" group="rule_revenue" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rule_revenue_test.iml" filepath="$PROJECT_DIR$/.idea/modules/rule_revenue_test.iml" group="rule_revenue" />
+    </modules>
+  </component>
+</project>
