@@ -1,0 +1,52 @@
+Spark Project Flow
+
+
+Have to check below details before initiating task on Intellij IDEA
+server version for spark and scala
+hiveW dir, Hive conf file dir
+Queue
+No. of resourses from Resourse manager UI
+Backend data size, hive tables, hive table data format
+
+
+Intellij Idea Config
+Create build. gradle file as below
+
+
+group 'org.com.tcl'
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.apache.spark/spark-sql
+    compile group: 'org.apache.spark', name: 'spark-sql_2.10', version: '1.6.0'
+
+}
+
+
+create project structure as below
+src/main/scala
+src/test/scala
+
+In main/scala   do right click, and click on new, then create scala class, if scala class is not available, then go to plugin, then search for scala class, install it(probably it will take 5 mins), then right click on project, and click on Add framework Support, and then click on scala
+Finally will get scala sdk added into our project
+
+...Then right click on src/main/scala and create pacakge, and in that package create scala class(actually save it as object)
+
+
+
+...In scala class, write code for spark session object creation
+
+
+
+
