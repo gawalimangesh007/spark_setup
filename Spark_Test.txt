@@ -1,0 +1,47 @@
+package sample_test1
+
+import org.apache.spark.sql.SparkSession
+
+object Sample1 {
+  def main(args: Array[String]): Unit = {
+    val startTime = System.nanoTime()
+    val spark = SparkSession
+      .builder()
+      .appName("Analysis_Spark")
+      .config("spark.sql.warehouse.dir", "*********")
+      .enableHiveSupport()
+      .getOrCreate()
+
+
+    System.out.println(spark.sparkContext.applicationId)
+
+    System.out.println("**********")
+    //normalizing data for *** and storing into ORC format
+    spark.sqlContext.sql(
+      """
+        |***********************
+      """.stripMargin).write.format("orc").save("****************")
+
+    System.out.println("Data pushed into dir in orc for ********")
+    System.out.println("Data preprocessing is started for ******")
+         spark.sqlContext.sql(
+        """
+          |********** """.stripMargin).write.format("orc").save("***********")
+    System.out.println("Data pushed into dir in orc for *******")
+
+   spark.read.format("orc").load("****************").createOrReplaceTempView("******")
+    System.out.println("Data loaded for ****")
+
+    spark.read.format("orc").load("**************").createOrReplaceTempView("*******")
+    System.out.println("Data loaded for *******")
+    System.out.println("Mapping process started, will push data to *******")
+    spark.sql(
+      """
+        ************* """.stripMargin).write.format("orc").save("******************")
+
+
+    println(" %.2f seconds".format((System.nanoTime - startTime) / 1E9))
+
+    spark.stop()
+  }
+}
