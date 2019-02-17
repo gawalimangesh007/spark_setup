@@ -1,1 +1,20 @@
-ffff
+sqoop import -Dmapred.job.queue.name=*****.****** \
+--connect "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=*****)(HOST=*******)(PORT=1521))(CONNECT_DATA=(SERVER=******)(SERVICE_NAME=****************)))" \
+--username ******** \
+--password ********* \
+--query "Select Distinct 
+********* from db.tab1 d 
+INNER JOIN db.tab2 h on h.***** = d.***** Inner join db.tab3 g on d.***** = g.***** WHERE 
+***** = '*****' and \$CONDITIONS" \
+--split-by ***** \
+--target-dir /****/**/**/This_dir_should_not_be_present/ \
+--fields-terminated-by '|' -m 1;
+
+
+sqoop import -Dmapred.job.queue.name=*****.****** \
+--connect "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=*****)(HOST=**********)(PORT=1521))(CONNECT_DATA=(SERVER=*********)(SERVICE_NAME=*********)))" \
+--username ******* \
+--password ********* \
+--hive-import --target-dir /datalake/uhc/ei/pi_ara/iota/hive/warehouse/db.db/tab1/ \
+--query "***** where d.***** = '***' and \$CONDITIONS" \
+--hive-table db.tab1 -m 1;
